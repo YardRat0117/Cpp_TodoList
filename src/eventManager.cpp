@@ -1,4 +1,3 @@
-#pragma once
 #include "eventManager.h"
 
 using json = nlohmann::json;
