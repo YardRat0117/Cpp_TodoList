@@ -3,7 +3,7 @@
 #include "todoEvent.h"
 #include <fstream>
 #include <algorithm>
-#include <nlohmann/json.hpp>
+#include <json.hpp>
 
 
 class eventManager {

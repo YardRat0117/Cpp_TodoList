@@ -1,3 +1,4 @@
+#pragma once
 #include "userInterface.h"
 #include <iostream>
 
