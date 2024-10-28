@@ -2,12 +2,8 @@
 #include <stdexcept>
 
 // Constructor
-todoEvent::todoEvent(const std::string t, const std::string d, const int dl, const int wl) {
-    this->title = t;
-    this->description = d;
-    this->deadline = dl;
-    this->workload = wl;
-}
+todoEvent::todoEvent(const std::string t, const std::string d, const int dl, const int wl)
+    : title(t), description(d), deadline(dl), workload(wl) {}
 
 // Getter
 std::string todoEvent::getTitle() const {
@@ -27,15 +23,11 @@ int todoEvent::getWorkload() const {
 }
 
 // Revise details
-void todoEvent::revise(const std::string t, const std::string d, const int dl, const int wl) {
-    if(wl < 0) {
-        throw std::invalid_argument("Worklaod must be non-negative. ");
-    }
-
-    this->title = t;
-    this->description = d;
-    this->deadline = dl;
-    this->workload = wl;
+void todoEvent::revise(const todoEvent& updatedEvent) {
+    this->title = updatedEvent.getTitle();
+    this->description = updatedEvent.getDescription();
+    this->deadline = updatedEvent.getDeadline();
+    this->workload = updatedEvent.getWorkload();
 }
 
 // Overloaded output stream operator
