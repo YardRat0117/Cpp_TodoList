@@ -11,6 +11,7 @@ public:
     void removeEventInput();
     void reviseEventInput();
     void displayEvents();
+    void displaySortedEvents();
     void loadEventsFromFile();
     void saveEventsToFile();
 };

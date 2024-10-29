@@ -16,6 +16,7 @@ class eventManager {
         void addEvent(const todoEvent& event);
         void removeEvent(const std::string& title);
         void reviseEvent(const std::string& title, const todoEvent& updatedEvent);
+        void displayEvent();
         std::vector<todoEvent> getSortedEvents() const;
         const std::vector<todoEvent>& getAllEvents() const;
 };

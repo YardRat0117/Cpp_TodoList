@@ -8,8 +8,9 @@ void userInterface::displayMenu() {
         std::cout << "2. Remove Event\n";
         std::cout << "3. Revise Event\n";
         std::cout << "4. Display Events\n";
-        std::cout << "5. Load Events from File\n";
-        std::cout << "6. Save Events to File\n";
+        std::cout << "5. Display Sorted Events\n";
+        std::cout << "6. Load Events from File\n";
+        std::cout << "7. Save Events to File\n";
         std::cout << "0. Exit\n";
         std::cout << "Enter your choice: ";
         std::cin >> choice;
@@ -19,8 +20,9 @@ void userInterface::displayMenu() {
             case 2: removeEventInput(); break;
             case 3: reviseEventInput(); break;
             case 4: displayEvents(); break;
-            case 5: loadEventsFromFile(); break;
-            case 6: saveEventsToFile(); break;
+            case 5: displaySortedEvents(); break;
+            case 6: loadEventsFromFile(); break;
+            case 7: saveEventsToFile(); break;
         }
     } while (choice != 0);
 }
@@ -70,6 +72,13 @@ void userInterface::reviseEventInput() {
 
 void userInterface::displayEvents() {
     for (const auto& event : eventManager.getAllEvents()) {
+        std::cout << event << std::endl;
+    }
+}
+
+void userInterface::displaySortedEvents() {
+    auto sortedEvents = eventManager.getSortedEvents();
+    for (const auto& event : sortedEvents) {
         std::cout << event << std::endl;
     }
 }
