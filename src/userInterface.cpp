@@ -39,7 +39,7 @@ void userInterface::addEventInput() {
     std::cin >> deadline;
     std::cout << "Enter workload (in hours): ";
     std::cin >> workload;
-    eventManager.addEvent(todoEvent(title, description, deadline, workload));
+    manager.addEvent(todoEvent(title, description, deadline, workload));
 }
 
 void userInterface::removeEventInput() {
@@ -47,7 +47,7 @@ void userInterface::removeEventInput() {
     std::cout << "Enter title of the event to remove: ";
     std::cin.ignore();
     std::getline(std::cin, title);
-    eventManager.removeEvent(title);
+    manager.removeEvent(title);
 }
 
 void userInterface::reviseEventInput() {
@@ -67,17 +67,17 @@ void userInterface::reviseEventInput() {
     std::cout << "Enter new workload (in hours): ";
     std::cin >> newWorkload;
 
-    eventManager.reviseEvent(title, todoEvent(newTitle, newDescription, newDeadline, newWorkload));
+    manager.reviseEvent(title, todoEvent(newTitle, newDescription, newDeadline, newWorkload));
 }
 
 void userInterface::displayEvents() {
-    for (const auto& event : eventManager.getAllEvents()) {
+    for (const auto& event : manager.getAllEvents()) {
         std::cout << event << std::endl;
     }
 }
 
 void userInterface::displaySortedEvents() {
-    auto sortedEvents = eventManager.getSortedEvents();
+    auto sortedEvents = manager.getSortedEvents();
     for (const auto& event : sortedEvents) {
         std::cout << event << std::endl;
     }
@@ -87,12 +87,12 @@ void userInterface::loadEventsFromFile() {
     std::string filename;
     std::cout << "Enter filename to load events from: ";
     std::cin >> filename;
-    eventManager.loadEvents(filename);
+    manager.loadEvents(filename);
 }
 
 void userInterface::saveEventsToFile() {
     std::string filename;
     std::cout << "Enter filename to save events to: ";
     std::cin >> filename;
-    eventManager.saveEvents(filename);
+    manager.saveEvents(filename);
 }

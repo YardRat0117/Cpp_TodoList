@@ -3,7 +3,7 @@
 
 class userInterface {
 private:
-    eventManager eventManager;
+    eventManager manager;
 
 public:
     void displayMenu();
